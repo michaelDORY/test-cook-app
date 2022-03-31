@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/static/js/main.7b20acf1.js",
+    "static/media/back.png": "/static/media/back.cc15297962b6f2492df0.png",
+    "static/media/Gaegu-Bold.woff": "/static/media/Gaegu-Bold.cd0cc6672aa0411b17f9.woff",
+    "static/media/placeholder.png": "/static/media/placeholder.3398719d5a12ab49e2c7.png",
+    "static/media/Lato-Regular.woff": "/static/media/Lato-Regular.919dc7a37ceefd394e47.woff",
+    "static/media/Lato-Bold.woff": "/static/media/Lato-Bold.0499152900df9c031e65.woff",
+    "static/media/yellow-star-icon.svg": "/static/media/yellow-star-icon.dcf6ba95babb0804db3ba3ed85505f07.svg",
+    "static/media/star-icon.svg": "/static/media/star-icon.4ba868c43f38eb059b077588756579ed.svg",
+    "static/media/fovourites-icon.svg": "/static/media/fovourites-icon.2686d521084e0aae8ea11526802e0401.svg",
+    "static/media/random-icon.svg": "/static/media/random-icon.96746518ed791eadde3ffe798fe9eb7a.svg",
+    "index.html": "/index.html",
+    "static/media/plus-icon.svg": "/static/media/plus-icon.d764dfccfb0b08449d306c76e3ab5997.svg",
+    "main.7b20acf1.js.map": "/static/js/main.7b20acf1.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7b20acf1.js"
+  ]
+}
