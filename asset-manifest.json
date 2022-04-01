@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/test-cook-app/static/js/main.a4057dc1.js",
+    "main.js": "/test-cook-app/static/js/main.15136941.js",
     "static/media/back.png": "/test-cook-app/static/media/back.cc15297962b6f2492df0.png",
     "static/media/Gaegu-Bold.woff": "/test-cook-app/static/media/Gaegu-Bold.cd0cc6672aa0411b17f9.woff",
     "static/media/placeholder.png": "/test-cook-app/static/media/placeholder.3398719d5a12ab49e2c7.png",
@@ -13,9 +13,9 @@
     "static/media/random-icon.svg": "/test-cook-app/static/media/random-icon.96746518ed791eadde3ffe798fe9eb7a.svg",
     "index.html": "/test-cook-app/index.html",
     "static/media/plus-icon.svg": "/test-cook-app/static/media/plus-icon.d764dfccfb0b08449d306c76e3ab5997.svg",
-    "main.a4057dc1.js.map": "/test-cook-app/static/js/main.a4057dc1.js.map"
+    "main.15136941.js.map": "/test-cook-app/static/js/main.15136941.js.map"
   },
   "entrypoints": [
-    "static/js/main.a4057dc1.js"
+    "static/js/main.15136941.js"
   ]
 }
