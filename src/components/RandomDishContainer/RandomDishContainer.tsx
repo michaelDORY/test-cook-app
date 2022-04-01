@@ -5,19 +5,18 @@ import {useLocalStorage} from "hooks/useLocalStorage";
 import {getRandomDish} from "server/http-requests";
 import {IDish, IFavourites} from "types/types";
 import {toast} from "react-toastify";
+import {DISH_KEY} from 'constraints';
 
 const RandomDishContainer: FC = () => {
 
-  const DISH_KEY: string = 'currentDish';
-
-  //const [isFavourite, setFavourite] = useState<boolean>(false);
-
   const [dish, setDish] = useLocalStorage(DISH_KEY, null);
+  const [loading, setLoading] = useState(false);
 
   //first dish rendering
   useEffect(() => {
-    try {
-      if (!localStorage.getItem(DISH_KEY)) {
+    if (!JSON.parse(localStorage.getItem(DISH_KEY) || '')) {
+      try {
+        setLoading(true);
         getRandomDish().then(
           dish => {
             const myDish: IDish = {
@@ -28,25 +27,36 @@ const RandomDishContainer: FC = () => {
             setDish(myDish);
           }
         );
+      } catch (e) {
+        toast('Sorry, something went wrong(');
+        console.log('error')
+      } finally {
+        setLoading(false);
       }
-    } catch (e) {
-      toast('Sorry, something went wrong(')
     }
   }, [setDish])
 
   const dishHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const responseDish = await getRandomDish();
-    const myDish: IDish = {
-      heading: responseDish.strMeal,
-      description: responseDish.strInstructions,
-      img: responseDish.strMealThumb
+    try {
+      setLoading(true);
+      const responseDish = await getRandomDish();
+      const myDish: IDish = {
+        heading: responseDish.strMeal,
+        description: responseDish.strInstructions,
+        img: responseDish.strMealThumb
+      }
+      setDish(myDish);
+    } catch (e) {
+      toast('Sorry, something went wrong(');
+    } finally {
+      setLoading(false)
     }
-    setDish(myDish);
   }
 
   return (
     <CardContainer>
       <DishCard
+        loading={loading}
         changeable={true}
         description={dish?.description}
         heading={dish?.heading}

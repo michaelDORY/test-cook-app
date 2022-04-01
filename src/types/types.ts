@@ -7,7 +7,7 @@ export interface IResponseDish {
 export interface IDish {
   heading: string,
   description: string,
-  img: string
+  img?: string
 }
 
 export interface IGetRandomDish {

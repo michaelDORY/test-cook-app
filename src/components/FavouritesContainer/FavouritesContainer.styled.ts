@@ -7,6 +7,16 @@ export const Flex = styled.div`
   margin: 0 auto;
   max-width: 1400px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 50px;
+`;
+
+export const NoFavouritesBoundary = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const NoFavouritesImage = styled.img`
+  width: 35%;
 `;

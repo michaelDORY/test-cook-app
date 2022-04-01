@@ -1,9 +1,18 @@
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
+
+interface NavItemProps {
+  isOnFocus: boolean
+}
 
 interface IconProps {
   src: string,
   marginRight?: string
+}
+
+interface AddDishButtonProps {
+  marginLeft?: string,
+  marginTop?: string,
+  center?: boolean
 }
 
 export const HeaderNavItems = styled.div`
@@ -24,23 +33,49 @@ export const HeaderWrapper = styled.div`
   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.23) 100%);
 `;
 
-export const NavItem = styled(Link)`
+export const NavItem = styled.button<NavItemProps>`
   display: flex;
   align-items: center;
   font-weight: bold;
+  font-size: 16px;
   height: 44px;
+  color: ${props => props.isOnFocus && props.theme.color.primary};
+  text-shadow: ${props => props.isOnFocus && '0 4px 4px rgba(153, 52, 169, 0.31)'};
+  background: transparent;
+  
+  &:hover:not(:focus) > span {
+    transform: ${props => !props.isOnFocus && 'rotate(360deg)'};
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  &:hover, &:focus {
+    color: ${props => props.theme.color.primary};
+  }
+
+  &:focus {
+    text-shadow: 0 4px 4px rgba(153, 52, 169, 0.31);
+  }
 `;
 
-export const AddDishButton = styled(Link)`
-  margin-left: -60px;
+export const AddDishButton = styled.button<AddDishButtonProps>`
+  margin: ${props => props.center ? '0 auto': 0};
+  margin-top: ${props => props.marginTop ? props.marginTop : 0};
   display: flex;
   align-items: center;
   padding: 10px 33px;
   border-radius: ${props => props.theme.box.borderRadius};
-  background: ${props => props.theme.color.primary};
+  background: ${props => props.disabled ? 'grey' : props.theme.box.gradient};
   color: #fff;
   font-size: 18px;
-  filter: ${props => props.theme.box.boxShadow};
+  font-weight: bold;
+  transition: 0.5s;
+  background-size: 200% auto;
+
+  &:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
 `;
 
 export const Icon = styled.span<IconProps>`

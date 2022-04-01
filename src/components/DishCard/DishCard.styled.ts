@@ -1,11 +1,29 @@
 import styled from "styled-components";
+import {MutatingDots} from "react-loader-spinner";
 
 interface IconButtonProps {
-  src: string | undefined
+  src?: string
 }
+
+export const Loader = styled(MutatingDots).attrs(props => (
+  {
+    width: '100px',
+    height: '100px',
+    wrapperStyle: {
+      marginLeft: '50%',
+      marginTop: '50%',
+      transform: 'translate(-25%, -50%)'
+    },
+  }
+))`
+  display: block;
+  margin: 100px;
+  padding: 10px;
+`;
 
 export const CardBase = styled.div`
   width: 400px;
+  min-height: 400px;
   background: #fff;
   border-radius: ${props => props.theme.box.borderRadius};
   filter: ${props => props.theme.box.boxShadow};
