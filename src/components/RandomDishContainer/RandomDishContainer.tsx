@@ -3,7 +3,7 @@ import DishCard from 'components/DishCard/DishCard';
 import {CardContainer} from './RandomDishContainer.styled';
 import {useLocalStorage} from "hooks/useLocalStorage";
 import {getRandomDish} from "server/http-requests";
-import {IDish, IFavourites} from "types/types";
+import {IDish} from "types/types";
 import {toast} from "react-toastify";
 import {DISH_KEY} from 'constraints';
 

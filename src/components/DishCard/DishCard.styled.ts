@@ -23,7 +23,7 @@ export const Loader = styled(MutatingDots).attrs(props => (
 
 export const CardBase = styled.div`
   width: 400px;
-  min-height: 400px;
+  min-height: 500px;
   background: #fff;
   border-radius: ${props => props.theme.box.borderRadius};
   filter: ${props => props.theme.box.boxShadow};

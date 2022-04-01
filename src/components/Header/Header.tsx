@@ -33,7 +33,7 @@ const Header: FC = () => {
               Random dish
             </NavItem>
           </Link>
-          <Link to={'/favourites'}>
+          <Link to={'favourites'}>
             <NavItem isOnFocus={pathname === '/favourites'}>
               <Icon src={FavouritesIcon}/>
               Favourites
@@ -52,7 +52,7 @@ const Header: FC = () => {
         </Flex>
       </HeaderWrapper>
       <Routes>
-        <Route path={'/favourites/add-dish'} element={
+        <Route path={'favourites/add-dish'} element={
           <ModalAddDish isOpen={isModalOpen} onRequestClose={handleOnCloseModal} toFavouritesPage={handleOnCloseModal}/>
         }/>
       </Routes>
