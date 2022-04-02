@@ -1,22 +1,24 @@
 import styled from "styled-components";
 
 interface NavItemProps {
-  isOnFocus: boolean
+  isOnFocus: boolean,
 }
 
 interface IconProps {
   src: string,
+  isTablet?: boolean,
   marginRight?: string
 }
 
 interface AddDishButtonProps {
   marginLeft?: string,
   marginTop?: string,
-  center?: boolean
+  center?: boolean,
+  isTablet?: boolean
 }
 
 export const HeaderNavItems = styled.div`
-  width: 300px;
+  width: 350px;
   margin-left: calc(50%);
   transform: translateX(-50%);
   display: flex;
@@ -62,7 +64,7 @@ export const AddDishButton = styled.button<AddDishButtonProps>`
   margin-top: ${props => props.marginTop ? props.marginTop : 0};
   display: flex;
   align-items: center;
-  padding: 10px 33px;
+  padding: ${props => props.isTablet ? '5px 15px' : '10px 33px'};
   border-radius: ${props => props.theme.box.borderRadius};
   background: ${props => props.disabled ? 'grey' : props.theme.box.gradient};
   color: #fff;
@@ -78,10 +80,9 @@ export const AddDishButton = styled.button<AddDishButtonProps>`
   }
 `;
 
-export const Icon = styled.span<IconProps>`
-  display: inline-block;
-  background: url(${props => props.src}) center no-repeat;
-  margin-right: ${props => {return props.marginRight ? props.marginRight : '8px' }};
-  width: 24px;
-  height: 24px;
+export const Icon = styled.img<IconProps>`
+  object-fit: cover;
+  margin-right: ${props => props.marginRight ? props.marginRight : '8px' };
+  width: ${props => props.isTablet ? '35px' : '24px'};
+  height: ${props => props.isTablet ? '35px' : '24px'};
 `;

@@ -16,6 +16,7 @@ import IconStarSource from "assets/icons/star-icon.svg";
 import {IDish, IFavourites} from "types/types";
 import {DISH_KEY, FAVOURITES_KEY} from "constraints";
 import {useLocation} from "react-router-dom";
+import {useQuery} from "utils/queries";
 
 interface DishCardProps {
   loading?: boolean,
@@ -29,6 +30,8 @@ interface DishCardProps {
 }
 
 const DishCard: (props: DishCardProps) => JSX.Element = (props: DishCardProps) => {
+
+  const {isTablet} = useQuery();
 
   const isFavourite = useRef<boolean>(props.isDefaultFavourite);
   const [isYellowStar, setYellowStar] = useState(props.isDefaultFavourite);
@@ -66,23 +69,25 @@ const DishCard: (props: DishCardProps) => JSX.Element = (props: DishCardProps) =
   }
 
   return (
-    <CardBase>
+    <CardBase isTablet={isTablet}>
       {
         props.loading ?
           <Loader ariaLabel="loading-indicator"/> :
           <>
-            <DishImage src={props.image || ImagePlaceholder}/>
-            <CardContent>
+            <DishImage src={props.image || ImagePlaceholder} isTablet={isTablet} />
+            <CardContent isTablet={isTablet}>
               <Line>
-                <CardHeading>
+                <CardHeading isTablet={isTablet}>
                   {props.heading}
                 </CardHeading>
                 <IconButton
                   src={isYellowStar ? YellowIconStarSource : IconStarSource}
+                  isTablet={isTablet}
                   onClick={(e) => {
                     favouriteHandler(e);
                     props.deleteFromFavourites && props.deleteFromFavourites(e);
-                  }}/>
+                  }}
+                />
               </Line>
               <CardDescription>
                 {props.description}

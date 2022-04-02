@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {DescriptionArea, HeadingInput, Modal} from './ModalAddDish.styled';
 import ReactModal from "react-modal";
 import {CardBase, CardContent, DishImage} from 'components/DishCard/DishCard.styled';
@@ -7,12 +7,15 @@ import {AddDishButton, Icon} from 'components/Header/Header.styled';
 import PlusIcon from "assets/icons/plus-icon.svg";
 import {IDish, IFavourites} from "types/types";
 import {FAVOURITES_KEY} from "constraints";
+import {useQuery} from "utils/queries";
 
 interface ModalAddDishProps extends ReactModal.Props {
   toFavouritesPage: () => void
 }
 
 const ModalAddDish = (props: ModalAddDishProps) => {
+
+  const {isTablet} = useQuery();
 
   const [heading, setHeading] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -23,8 +26,7 @@ const ModalAddDish = (props: ModalAddDishProps) => {
   useEffect(() => {
     if (!description || !heading) {
       setFormValid(false)
-    }
-    else if (!!heading && !!description) {
+    } else if (!!heading && !!description) {
       setFormValid(true)
     }
   }, [heading, description])
@@ -70,8 +72,8 @@ const ModalAddDish = (props: ModalAddDishProps) => {
   return (
     <Modal {...props}>
       <form onSubmit={handleSubmit}>
-        <CardBase>
-          <DishImage src={ImagePlaceholder}/>
+        <CardBase isTablet={isTablet}>
+          <DishImage src={ImagePlaceholder} isTablet={isTablet} />
           <CardContent>
             <HeadingInput
               isCorrect={(!!heading && isHeadingDirty) || !isHeadingDirty}

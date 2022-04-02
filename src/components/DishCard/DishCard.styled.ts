@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import {MutatingDots} from "react-loader-spinner";
 
-interface IconButtonProps {
-  src?: string
+interface WithQueries {
+  isTablet?: boolean
+}
+
+interface IconButtonProps extends WithQueries{
+  src: string
 }
 
 export const Loader = styled(MutatingDots).attrs(props => (
@@ -21,26 +25,26 @@ export const Loader = styled(MutatingDots).attrs(props => (
   padding: 10px;
 `;
 
-export const CardBase = styled.div`
-  width: 400px;
-  min-height: 500px;
+export const CardBase = styled.div<WithQueries>`
+  width: ${props => props.isTablet ? '300px' : '400px'};
+  min-height: ${props => props.isTablet ? '400px' : '500px'};;
   background: #fff;
   border-radius: ${props => props.theme.box.borderRadius};
   filter: ${props => props.theme.box.boxShadow};
   position: relative;
 `;
 
-export const DishImage = styled.img`
+export const DishImage = styled.img<WithQueries>`
   border-top-left-radius: ${props => props.theme.box.borderRadius};
   border-top-right-radius: ${props => props.theme.box.borderRadius};
-  height: 230px;
+  height: ${props => props.isTablet ? '130px' : '230px'};
   width: 100%;
   object-fit: cover;
 `;
 
-export const CardContent = styled.div`
+export const CardContent = styled.div<WithQueries>`
   height: 100%;
-  padding: 15px 40px 50px;
+  padding: ${props => props.isTablet ? '15px 20px 20px' : '15px 5% 20px'};
 `;
 
 export const Line = styled.div`
@@ -49,18 +53,19 @@ export const Line = styled.div`
   align-items: center;
 `;
 
-export const CardHeading = styled.div`
+export const CardHeading = styled.div<WithQueries>`
+  display: inline;
   font-family: 'Gaegu', sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: ${props => props.isTablet ? '22px' : '30px'};
   line-height: 0.9;
   max-width: 250px;
 `;
 
 export const IconButton = styled.button<IconButtonProps>`
-  background: url(${props => props.src}) center no-repeat;
-  width: 50px;
-  height: 50px;
+  background: url(${props => props.src}) center / cover no-repeat;
+  width: ${props => props.isTablet ? '40px' : '50px'};
+  height: ${props => props.isTablet ? '40px' : '50px'};
 `;
 
 export const CardDescription = styled.p`

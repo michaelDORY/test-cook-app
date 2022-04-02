@@ -17,10 +17,16 @@ export const Modal = styled(ReactModal).attrs<ReactModal.Props>(props => ({
 }))`
   margin: 100px auto 0;
   width: 400px;
+  overflow: auto;
+  
+  @media (max-width: 768px ) {
+    width: 300px;
+    margin-top: 50px;
+  }
 `;
 
 export const HeadingInput = styled.input<WithValidationProps>`
-  width: 320px;
+  width: 100%;
   height: 55px;
   font-family: Gaegu, sans-serif;
   font-weight: bold;
@@ -36,7 +42,7 @@ export const HeadingInput = styled.input<WithValidationProps>`
 
 export const DescriptionArea = styled.textarea<WithValidationProps>`
   margin-top: 20px;
-  width: 320px;
+  width: 100%;
   height: 115px;
   resize: none;
   font-size: 18px;
