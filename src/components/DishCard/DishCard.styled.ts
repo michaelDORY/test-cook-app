@@ -59,7 +59,7 @@ export const CardHeading = styled.div<WithQueries>`
   font-weight: bold;
   font-size: ${props => props.isTablet ? '22px' : '30px'};
   line-height: 0.9;
-  max-width: 250px;
+  max-width: 70%;
 `;
 
 export const IconButton = styled.button<IconButtonProps>`
