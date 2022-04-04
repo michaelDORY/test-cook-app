@@ -45,7 +45,7 @@ export const NavItem = styled.button<NavItemProps>`
   text-shadow: ${props => props.isOnFocus && '0 4px 4px rgba(153, 52, 169, 0.31)'};
   background: transparent;
   
-  &:hover:not(:focus) > span {
+  &:hover:not(:focus) > img {
     transform: ${props => !props.isOnFocus && 'rotate(360deg)'};
     transition: transform 0.6s ease-in-out;
   }
